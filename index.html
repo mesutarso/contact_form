@@ -1,0 +1,122 @@
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des contacts</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Repertoire de contacts</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main--bar bg-primary">
+        <h1>Répertoire des contacts</h1>
+      </div>
+      <div class="form-container row ">
+        <div class="container col-6">
+            <div class="form--title">
+                <h2>Formulaire de Contact</h2>
+              </div>
+        <form action="">
+            <div class="form-group mb-3">
+              <label for="prenom" class="form-label" >Prénom</label>
+
+              <input type="text" id="prenom" name="prenom" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="nom" class="form-label">Nom</label>
+
+              <input type="text"id="nom" name="nom" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="groupe" class="form-label">Groupe</label>
+              <select name="" id="groupe" name="groupe" class="form-control">
+                <option value="">Selectionner un groupe</option>
+                <option value="GPA">GPA</option>
+                <option value="GPB">GPB</option>
+                <option value="GPC">GPC</option>
+              </select>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="bio" class="form-label">Biographie</label>
+
+              <textarea id="bio" name="bio" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group mb-3 profile-container">
+              <div>
+                <div class="profile--btn">
+                  <i class="fas fa-folder-plus"></i>
+                  <label for="myFile" class="form-label" id="profile-label"
+                    >Insérer une photo</label
+                  >
+                </div>
+                <input type="file" id="profile" class="form-control" hidden />
+              </div>
+
+              <div class="form-group" id="divImg">
+                <img src="asset/avatar.svg" alt="" id="profile-image" />
+              </div>
+            </div>
+
+            <div class="form-submit ">
+              <button class="btn btn-success" type="submit" id="addContact">
+                <i class="far fa-save"></i>
+                Créer
+              </button>
+
+              <button class="btn btn-danger" id="btnCancel">Annuler</button>
+            </div>
+          </div>
+        </form>
+        <div class="col-6">
+          <div class="hBar hbar--blue">
+            <h2>Liste de contact</h2>
+          </div>
+
+          <div class="contact-list">
+              <div class="card">
+                  <div class="card--image"><img src="./asset/avatar.svg" alt="photo du profil"></div>
+                  <div class="card--body col-9">
+                      <div class="card--body--text col-10">
+                          <p>nom</p>
+                          <p>prenom</p>
+                          <p>groupe</p>
+                          <p>BIo</p>
+                      </div>
+                      <div class="card--body--icon col-2">
+                          <i class="fas fa-trash"></i>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
