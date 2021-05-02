@@ -58,9 +58,8 @@
 }
 .card--body {
   display: flex;
-  justify-content: space-around;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  justify-content: space-evenly;
+  padding: 20px;
 }
 .card--body--icon > i {
   color: red;
