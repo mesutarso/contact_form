@@ -1,5 +1,3 @@
-import deleteCard from "./deleteCard.js";
-
 const contactList = document.querySelector(".contact-list");
 
 const createCard = (data) => {
@@ -37,6 +35,9 @@ const createCard = (data) => {
   if (!data.profile) {
     profileImage.setAttribute("src", "/asset/avatar.svg");
   }
+  iconTrash.addEventListener("click", () => {
+    console.log(contacts);
+  });
 };
 
-export default createCard;
+

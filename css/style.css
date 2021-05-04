@@ -40,10 +40,16 @@
   justify-content: space-between;
 }
 
+.contact-list {
+  overflow: auto;
+  height: 500px;
+}
+
 .card {
   display: flex;
   flex-direction: row !important;
   justify-content: space-evenly;
+  margin: 0.5rem;
 }
 .card--image {
   width: 30%;
