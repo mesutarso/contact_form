@@ -5,21 +5,23 @@ const form = document.getElementById("formContact");
 const profile = document.querySelector("#profile");
 const addContact = document.querySelector("#addContact");
 const contactList = document.querySelector(".contact-list");
+const message = document.querySelector(".message");
 
 form.addEventListener("input", (e) => {
   e.preventDefault();
   contact[e.target.name] = e.target.value;
-  contact;
+  console.log(contact);
 });
 
 addContact.addEventListener("click", (e) => {
   e.preventDefault();
-  deleteAllChildOf(contactList);
+  contactList.innerText = "";
   contacts = [...contacts, contact];
   contacts.map((contact) => {
-    if (!contact.nom || !contact.prenom || !contact.groupe || !contact.bio)
-      return;
-    else {
+    if (!contact.nom || !contact.prenom || !contact.groupe || !contact.bio) {
+      message.textContent = "vous devez remplir tous les champs";
+      message.classList.remove("hidden");
+    } else {
       createCard(contact);
     }
   });
@@ -68,11 +70,3 @@ const createCard = (data) => {
     console.log(cardItem);
   });
 };
-
-function deleteAllChildOf(parent) {
-  let child = parent.lastElementChild;
-  while (child) {
-    parent.removeChild(child);
-    child = parent.lastElementChild;
-  }
-}
