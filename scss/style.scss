@@ -53,7 +53,9 @@
     width: 30%;
     display: flex;
     align-items: center;
+
     margin-right: 0.25rem;
+    padding: 10px;
     > img {
       max-width: 100%;
       border-radius: 50%;
@@ -74,4 +76,10 @@
 
 .hidden {
   display: none;
+}
+
+#divImg {
+  img {
+    max-width: 100%;
+  }
 }

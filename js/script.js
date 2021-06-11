@@ -2,33 +2,47 @@ let contact = {};
 let contacts = [];
 
 const form = document.getElementById("formContact");
-const profile = document.querySelector("#profile");
+
+const profileImage = document.querySelector("#profile-image");
 const addContact = document.querySelector("#addContact");
 const contactList = document.querySelector(".contact-list");
 const message = document.querySelector(".message");
 
-form.addEventListener("input", (e) => {
-  e.preventDefault();
-  contact[e.target.name] = e.target.value;
-  console.log(contact);
+const createContact = (nom, prenom, groupe, bio, profile) => {
+  contact = {
+    nom: nom.value,
+    prenom: prenom.value,
+    groupe: groupe.value,
+    bio: bio.value,
+    profile: URL.createObjectURL(profile.files[0]),
+  };
+};
+
+profile.addEventListener("change", (e) => {
+  let url = URL.createObjectURL(event.target.files[0]);
+  profileImage.setAttribute("src", url);
 });
 
-addContact.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  contactList.innerText = "";
-  contacts = [...contacts, contact];
-  contacts.map((contact) => {
-    if (!contact.nom || !contact.prenom || !contact.groupe || !contact.bio) {
-      message.textContent = "vous devez remplir tous les champs";
-      message.classList.remove("hidden");
-    } else {
-      createCard(contact);
-    }
-  });
-  console.log(contacts);
+  const nom = document.getElementById("nom");
+  const prenom = document.getElementById("prenom");
+  const groupe = document.getElementById("groupe");
+  const bio = document.getElementById("prenom");
+  const profile = document.querySelector("#profile");
+
+  createContact(nom, prenom, groupe, bio, profile);
+
+  if (!contact.nom || !contact.prenom || !contact.groupe || !contact.bio) {
+    message.textContent = "vous devez remplir tous les champs";
+    message.classList.remove("hidden");
+  } else {
+    createCard(contact);
+  }
 });
 
 const createCard = (data) => {
+  console.log(data);
   const card = document.createElement("div");
   const cardImage = document.createElement("div");
   const cardBody = document.createElement("div");
@@ -59,10 +73,12 @@ const createCard = (data) => {
   fieldPrenom.innerText = data.prenom;
   fieldBiographie.innerText = data.bio;
   fieldGroupe.innerText = data.groupe;
-
   if (!data.profile) {
     profileImage.setAttribute("src", "/asset/avatar.svg");
+  } else {
+    profileImage.setAttribute("src", data.profile);
   }
+
   iconTrash.addEventListener("click", (e) => {
     e.preventDefault();
     let cardItem = e.target.parentNode.parentNode.parentNode;
